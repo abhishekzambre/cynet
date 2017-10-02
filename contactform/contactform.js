@@ -10,6 +10,10 @@ $("#contactForm").validator().on("submit", function (event) {
     }
 });
 
+function formSuccess(){
+    $("#contactForm")[0].reset();
+    submitMSG(true, "Message Submitted!")
+}
 
 function formError(){
     $("#contactForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
@@ -40,11 +44,8 @@ function submitForm(){
         success : function(text){
             if (text == "success"){
                 formSuccess();
-                $("#contactForm").hide()
+                // $("#contactForm").hide()
             }
         }
     });
-}
-function formSuccess(){
-    $( "#msgSubmit" ).removeClass( "hidden" );
 }
