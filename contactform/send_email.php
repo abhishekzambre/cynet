@@ -31,7 +31,7 @@ if (empty($_POST["message"])) {
 }
 
 
-$EmailTo = "abhishek.zambre@gmail.com";
+$EmailTo = "ankurchowdhary@cynetllc.com";
 $Subject = "CyNET Enquiry: ";
 $Subject .= $subject;
 
