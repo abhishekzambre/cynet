@@ -40,6 +40,7 @@ function submitForm(){
         success : function(text){
             if (text == "success"){
                 formSuccess();
+                $("#contactForm").hide()
             }
         }
     });
