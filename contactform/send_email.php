@@ -5,6 +5,8 @@ require('recaptcha-master/src/autoload.php');
 
 $recaptchaSecret = '6Lc3zzIUAAAAANuXM_s9r6CddMZSzxIijDeU1fX-';
 
+$okMessage = 'Contact form successfully submitted. Thank you, We will get back to you soon!';
+$errorMessage = 'There was an error while submitting the form. Please try again later.';
 
 try
 {
@@ -94,6 +96,7 @@ try
                 echo $errorMSG;
             }
         }
+        $responseArray = array('type' => 'success', 'message' => $okMessage);
     }
 }
 catch (\Exception $e)
