@@ -4,7 +4,7 @@ $errorMSG = "";
 
 // NAME
 if (empty($_POST["name"])) {
-    $errorMSG .= "Name is required ";
+    $errorMSG = "Name is required ";
 } else {
     $name = $_POST["name"];
 }
@@ -16,13 +16,6 @@ if (empty($_POST["email"])) {
     $email = $_POST["email"];
 }
 
-// SUBJECT
-if (empty($_POST["subject"])) {
-    $errorMSG .= "Subject is required ";
-} else {
-    $subject = $_POST["subject"];
-}
-
 // MESSAGE
 if (empty($_POST["message"])) {
     $errorMSG .= "Message is required ";
@@ -32,7 +25,7 @@ if (empty($_POST["message"])) {
 
 
 $EmailTo = "abhishek.zambre@gmail.com";
-$Subject = "CyNET LLC: New Enquiry Message Received";
+$Subject = "CyNET: New Enquiry Message Received";
 
 // prepare email body text
 $Body = "";
@@ -41,9 +34,6 @@ $Body .= $name;
 $Body .= "\n";
 $Body .= "Email: ";
 $Body .= $email;
-$Body .= "\n";
-$Body .= "Subject: ";
-$Body .= $subject;
 $Body .= "\n";
 $Body .= "Message: ";
 $Body .= $message;
