@@ -15,12 +15,13 @@ function submitForm(){
     // Initiate Variables With Form Content
     var name = $("#name").val();
     var email = $("#email").val();
+    var subject = $("#subject").val();
     var message = $("#message").val();
 
     $.ajax({
         type: "POST",
         url: "contactform/send_email.php",
-        data: "name=" + name + "&email=" + email + "&message=" + message,
+        data: "name=" + name + "&email=" + email + "&subject=" + subject + "&message=" + message,
         success : function(text){
             if (text == "success"){
                 formSuccess();
