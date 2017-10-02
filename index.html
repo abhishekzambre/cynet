@@ -452,32 +452,33 @@
             </div>
             <div class="row contact-wrap">
                 <div class="col-md-8 col-md-offset-2">
-                    <div id="sendmessage">Your message has been sent. Thank you!</div>
-                    <div id="errormessage"></div>
-                    <form action="contactform/send_email.php"  method="post" name="contactform" role="form" class="contactForm">
+
+                    <div id="msgSubmit" class="h3 text-center hidden"></div>
+
+                    <form id="contactForm" role="form" class="shake">
                         <div class="form-group">
                             <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
                                    data-rule="minlen:4" data-msg="Please enter at least 4 chars"/>
-                            <div class="validation"></div>
+                            <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group">
                             <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
                                    data-rule="email" data-msg="Please enter a valid email"/>
-                            <div class="validation"></div>
+                            <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
                                    data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject"/>
-                            <div class="validation"></div>
+                            <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group">
                             <textarea class="form-control" name="message" rows="5" data-rule="required"
                                       data-msg="Please write something for us" placeholder="Message"></textarea>
-                            <div class="validation"></div>
+                            <div class="help-block with-errors"></div>
                         </div>
 
                         <div class="text-center">
-                            <input type="submit" value="Submit">
+                            <button type="submit" id="form-submit" class="btn btn-success btn-lg">Send Message</button>
                         </div>
                     </form>
                 </div>
@@ -522,7 +523,8 @@
 <script src="js/jquery.easing.min.js"></script>
 <!--<script src="https://maps.google.com/maps/api/js?sensor=true"></script>-->
 <script src="js/main.js"></script>
-<!--<script src="contactform/contactform.js"></script>-->
+<script type="text/javascript" src="contactform/validator.min.js"></script>
+<script src="contactform/contactform.js"></script>
 
 </body>
 </html>
