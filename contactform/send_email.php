@@ -1,10 +1,5 @@
 <?php
 
-// require ReCaptcha class
-require('recaptcha-master/src/autoload.php');
-
-$recaptchaSecret = '6Lc3zzIUAAAAANuXM_s9r6CddMZSzxIijDeU1fX-';
-
 $errorMSG = "";
 
 // NAME
@@ -35,13 +30,6 @@ if (empty($_POST["message"])) {
     $message = $_POST["message"];
 }
 
-// CAPTCHA
-if (empty($_POST["captcha_response"])) {
-    $errorMSG .= "Please check the captcha form ";
-} else {
-    $captcha_response = $_POST["captcha_response"];
-}
-
 
 $EmailTo = "abhishek.zambre@gmail.com";
 $Subject = "CyNET Enquiry: ";
@@ -59,17 +47,8 @@ $Body .= "Message: ";
 $Body .= $message;
 $Body .= "\n";
 
-
-$ip = $_SERVER['REMOTE_ADDR'];
-$response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".recaptchaSecret."&response=".captcha_response."&remoteip=".$ip);
-$responseKeys = json_decode($response,true);
-
-if(intval($responseKeys["success"]) !== 1) {
-          $success = "";
-} else {
-         // send email
-         $success = mail($EmailTo, $Subject, $Body, "From:".$email);
-}
+// send email
+$success = mail($EmailTo, $Subject, $Body, "From:".$email);
 
 // redirect to success page
 if ($success && $errorMSG == ""){

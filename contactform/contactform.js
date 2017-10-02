@@ -17,12 +17,11 @@ function submitForm(){
     var email = $("#email").val();
     var subject = $("#subject").val();
     var message = $("#message").val();
-    var captcha_response = $("#g-recaptcha-response").val();
 
     $.ajax({
         type: "POST",
         url: "contactform/send_email.php",
-        data: "name=" + name + "&email=" + email + "&subject=" + subject + "&message=" + message + "&captcha_response" + captcha_response,
+        data: "name=" + name + "&email=" + email + "&subject=" + subject + "&message=" + message,
         success : function(text){
             if (text == "success"){
                 formSuccess();
