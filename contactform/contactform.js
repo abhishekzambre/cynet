@@ -35,6 +35,7 @@ function submitForm(){
 
 function formSuccess(){
     $("#contactForm")[0].reset();
+    grecaptcha.reset();
     submitMSG(true, "Message Submitted!")
 }
 
